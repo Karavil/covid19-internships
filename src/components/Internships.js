@@ -49,7 +49,12 @@ const Internships = ({ internships }) => {
                Powered by
                <Text as="span" color="blue.500" m={0}>
                   {" gcreddy42's list "}
-                  <Icon name="external-link" mx="2px" mb="2px" />
+                  <Icon
+                     color="blue.500"
+                     name="external-link"
+                     mx="2px"
+                     mb="2px"
+                  />
                </Text>
             </Link>
          </Text>
@@ -60,7 +65,7 @@ const Internships = ({ internships }) => {
             onChange={(e) => setFilter(e.target.value)}
          />
          {internships.length > 0 ? (
-            <SimpleGrid columns={4} spacing={3}>
+            <SimpleGrid columns={[1, 2, 3, 4]} spacing={3}>
                {InternshipCards}
             </SimpleGrid>
          ) : (
