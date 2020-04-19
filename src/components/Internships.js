@@ -65,7 +65,7 @@ const Internships = ({ internships }) => {
             onChange={(e) => setFilter(e.target.value)}
          />
          {internships.length > 0 ? (
-            <SimpleGrid columns={[1, 2, 3, 4]} spacing={3}>
+            <SimpleGrid columns={[1, 2, 3, 5]} spacing={3}>
                {InternshipCards}
             </SimpleGrid>
          ) : (
