@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import InternshipCard from "./InternshipCard";
 
-import { SimpleGrid, Input, Box, Spinner, Flex, Text } from "@chakra-ui/core";
+import {
+   SimpleGrid,
+   Input,
+   Box,
+   Spinner,
+   Flex,
+   Text,
+   Icon,
+   Link,
+} from "@chakra-ui/core";
 
 const sortInternshipByCompany = (a, b) => {
    if (a.company < b.company) {
@@ -32,9 +41,19 @@ const Internships = ({ internships }) => {
 
    return (
       <Box p={3}>
-         <Text my={-2} fontSize="3xl" fontWeight="bold">
+         <Text my={-1} fontSize="3xl" fontWeight="bold">
             Internship Statuses for Covid-19
          </Text>
+         <Text my={-1}>
+            <Link href="https://github.com/gcreddy42/hiring2020" isExternal>
+               Powered by
+               <Text as="span" color="blue.500" m={0}>
+                  {" gcreddy42's list "}
+                  <Icon name="external-link" mx="2px" mb="2px" />
+               </Text>
+            </Link>
+         </Text>
+
          <Input
             my={4}
             placeholder="Search for a company"
