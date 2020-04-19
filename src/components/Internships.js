@@ -42,7 +42,7 @@ const Internships = ({ internships }) => {
    return (
       <Box p={3}>
          <Text my={-1} fontSize="3xl" fontWeight="bold">
-            Internship Statuses for Covid-19
+            Covid-19 Internship Tracker
          </Text>
          <Text my={-1}>
             <Link href="https://github.com/gcreddy42/hiring2020" isExternal>
