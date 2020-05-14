@@ -20,10 +20,8 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
    const [internships, setInternships] = useState([]);
-   const [loading, setLoading] = useState(false);
 
    useEffect(() => {
-      setLoading(true);
       axios
          .get(
             "https://raw.githubusercontent.com/gcreddy42/hiring2020/master/README.md"
@@ -55,9 +53,6 @@ function App() {
                }
             });
 
-            console.log(internshipData);
-
-            setLoading(false);
             setInternships(internshipData);
          })
          .catch((err) => console.log(err));
