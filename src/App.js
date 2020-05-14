@@ -46,7 +46,7 @@ function App() {
             const internshipData = [];
             markdown.split("\n").forEach((parsedData) => {
                const columns = parsedData.split("|");
-               if (columns[1] !== "") {
+               if (columns[1]) {
                   internshipData.push({
                      company: columns[1],
                      cancelled: columns[2] === "✅" ? false : true,
@@ -54,6 +54,8 @@ function App() {
                   });
                }
             });
+
+            console.log(internshipData);
 
             setLoading(false);
             setInternships(internshipData);
