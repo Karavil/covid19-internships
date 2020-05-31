@@ -67,31 +67,32 @@ const Internships = ({ internships, cancelledCount, stillOnCount }) => {
             onChange={(e) => setFilter(e.target.value)}
          />
 
-         <Flex mb={4}>
-            <Alert
-               width={`${
-                  (cancelledCount * 100) / (cancelledCount + stillOnCount)
-               }%`}
-               justifyContent="center"
-               status="error"
-            >
-               <AlertTitle>{cancelledCount} cancelled.</AlertTitle>
-            </Alert>
-            <Alert
-               width={`${
-                  (stillOnCount * 100) / (cancelledCount + stillOnCount)
-               }%`}
-               justifyContent="center"
-               status="success"
-            >
-               <AlertTitle>{stillOnCount} still on!</AlertTitle>
-            </Alert>
-         </Flex>
-
          {internships.length > 0 ? (
-            <SimpleGrid columns={[1, 2, 3, 5]} spacing={3}>
-               {InternshipCards}
-            </SimpleGrid>
+            <>
+               <Flex mb={4}>
+                  <Alert
+                     width={`${
+                        (cancelledCount * 100) / (cancelledCount + stillOnCount)
+                     }%`}
+                     justifyContent="center"
+                     status="error"
+                  >
+                     <AlertTitle>{cancelledCount} cancelled.</AlertTitle>
+                  </Alert>
+                  <Alert
+                     width={`${
+                        (stillOnCount * 100) / (cancelledCount + stillOnCount)
+                     }%`}
+                     justifyContent="center"
+                     status="success"
+                  >
+                     <AlertTitle>{stillOnCount} still on!</AlertTitle>
+                  </Alert>
+               </Flex>
+               <SimpleGrid columns={[1, 2, 3, 5]} spacing={3}>
+                  {InternshipCards}
+               </SimpleGrid>
+            </>
          ) : (
             <Flex width="100%" justify="center">
                <Spinner
