@@ -71,15 +71,19 @@ const Internships = ({ internships, cancelledCount, stillOnCount }) => {
             <>
                <Flex mb={4}>
                   <Alert
+                     borderTopLeftRadius={5}
+                     borderBottomLeftRadius={5}
                      width={`${
                         (cancelledCount * 100) / (cancelledCount + stillOnCount)
                      }%`}
                      justifyContent="center"
                      status="error"
                   >
-                     <AlertTitle>{cancelledCount} cancelled.</AlertTitle>
+                     <AlertTitle>{cancelledCount} cancelled</AlertTitle>
                   </Alert>
                   <Alert
+                     borderTopRightRadius={5}
+                     borderBottomRightRadius={5}
                      width={`${
                         (stillOnCount * 100) / (cancelledCount + stillOnCount)
                      }%`}
