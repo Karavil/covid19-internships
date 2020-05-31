@@ -4,6 +4,8 @@ import InternshipCard from "./InternshipCard";
 import {
    SimpleGrid,
    Input,
+   Alert,
+   AlertTitle,
    Box,
    Spinner,
    Flex,
@@ -22,7 +24,7 @@ const sortInternshipByCompany = (a, b) => {
    return 0;
 };
 
-const Internships = ({ internships }) => {
+const Internships = ({ internships, cancelledCount, stillOnCount }) => {
    const [filter, setFilter] = useState("");
 
    const sortedAndFilteredInternships = internships
@@ -64,6 +66,28 @@ const Internships = ({ internships }) => {
             placeholder="Search for a company"
             onChange={(e) => setFilter(e.target.value)}
          />
+
+         <Flex mb={4}>
+            <Alert
+               width={`${
+                  (cancelledCount * 100) / (cancelledCount + stillOnCount)
+               }%`}
+               justifyContent="center"
+               status="error"
+            >
+               <AlertTitle>{cancelledCount} cancelled.</AlertTitle>
+            </Alert>
+            <Alert
+               width={`${
+                  (stillOnCount * 100) / (cancelledCount + stillOnCount)
+               }%`}
+               justifyContent="center"
+               status="success"
+            >
+               <AlertTitle>{stillOnCount} still on!</AlertTitle>
+            </Alert>
+         </Flex>
+
          {internships.length > 0 ? (
             <SimpleGrid columns={[1, 2, 3, 5]} spacing={3}>
                {InternshipCards}
@@ -71,6 +95,7 @@ const Internships = ({ internships }) => {
          ) : (
             <Flex width="100%" justify="center">
                <Spinner
+                  mx="auto"
                   thickness="10px"
                   emptyColor="gray.200"
                   color="purple.500"

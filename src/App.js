@@ -58,11 +58,23 @@ function App() {
          .catch((err) => console.log(err));
    }, []);
 
+   let cancelledCount = 0;
+   let stillOnCount = 0;
+
+   internships.forEach((internship) => {
+      if (internship.cancelled === true) cancelledCount++;
+      else if (internship.cancelled === false) stillOnCount++;
+   });
+
    return (
       <ThemeProvider theme={theme}>
          <CSSReset />
          <GlobalStyle />
-         <Internships internships={internships} />
+         <Internships
+            stillOnCount={stillOnCount}
+            cancelledCount={cancelledCount}
+            internships={internships}
+         />
       </ThemeProvider>
    );
 }

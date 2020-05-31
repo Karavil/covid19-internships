@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/core";
 
 const InternshipCard = ({ internship }) => {
-   const StatusData = {
+   const data = {
       status: internship.cancelled ? "error" : "success",
       title: internship.cancelled ? "Cancelled" : "Still on!",
    };
@@ -23,9 +23,9 @@ const InternshipCard = ({ internship }) => {
 
             <Divider />
 
-            <Alert my="3" status={StatusData.status}>
+            <Alert my="3" status={data.status}>
                <AlertIcon />
-               <AlertTitle>{StatusData.title}</AlertTitle>
+               <AlertTitle>{data.title}</AlertTitle>
             </Alert>
 
             <Text
